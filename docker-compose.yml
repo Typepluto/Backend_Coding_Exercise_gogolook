@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  server:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    image: test_sever_image
+    restart: unless-stopped
+    container_name: test_sever
+    volumes:
+      - ./server/:/usr/src/app
+    ports:
+      - 80:80
+    environment:
+      APP_DEBUG: "True"
+      APP_PORT: 80
+    command: "python app.py"
