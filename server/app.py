@@ -34,6 +34,6 @@ def delete_task(primary_key):
 
 
 if __name__ == "__main__":
-    ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", True)
+    ENVIRONMENT_DEBUG = True if os.environ.get("APP_DEBUG") else False
     ENVIRONMENT_PORT = os.environ.get("APP_PORT", 80)
     app.run(host='0.0.0.0', port=ENVIRONMENT_PORT, debug=ENVIRONMENT_DEBUG)
